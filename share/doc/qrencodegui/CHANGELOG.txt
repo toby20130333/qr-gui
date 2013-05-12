@@ -1,0 +1,24 @@
+===== Changes for qrencode-gui =====
+
+# v1.6 - 2013.5.12
+# - Modify the strategy of window resize method.
+# - Add some icons.
+
+# v1.5 - 2013.4.15
+# - Reconstruct application
+# - Redesign UI
+
+# v1.4.0 - 2013.3.23
+# - Reconstruct application
+
+# v1.3 - 2013.1.16
+# - Remove glade xml file.
+
+# v1.2 - 2013.1.16
+# - To be pakcaged.
+
+# v1.1 - 2013.1.16
+# - Support i18n.
+
+# v1.0 - 2013.1.15
+# - Project inited.
