@@ -1,0 +1,10 @@
+Package: qrencode-gui
+Version: 1.6
+Architecture: all
+Maintainer: goowaMie<gsushzhsosgsu@gmail.com>
+Installed-Size: 180k
+Depends: python3, qrencode, python3-gi
+Section: gnome
+Priority: optional
+Description: QR Image Generator with GUI
+ Qrencode-gui is a graphical user interface to generate QR images, using qrencode as backend.
