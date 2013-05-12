@@ -1,0 +1,1 @@
+share/doc/qrencodegui/README.md
