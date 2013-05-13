@@ -9,3 +9,8 @@ Tested on Debian sid.
 SCREENSHOT
 ==========
 <a href="http://www.dumpt.com/img/files/szj70q5adgxbjtb1eh1r.png" target="_blank"><img src="http://www.dumpt.com/img/files/szj70q5adgxbjtb1eh1r.png" title="qrencode-gui" alt="qrencode-demo" /></a>
+
+Features
+========
+* Simple to use.
+* Instant QR image generation.
