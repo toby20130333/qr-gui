@@ -33,7 +33,7 @@ Enter the build/ folder, and run build.sh script in command user like this:
 `$ ./build.sh`
 
 Then, run generate-deb.sh with root priviledge, like this:
-`$ sudo ./generate-deb.sh`
+`$ sudo ./generate_deb.sh`
 
 
 TODO
