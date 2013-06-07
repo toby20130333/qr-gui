@@ -3,6 +3,8 @@
 # Generate deb package from source.
 # v1.3 - 2013.6.7
 # Add chown operate.
+# Change the usage, now no need to input fakeroot and package name, making
+#  it easier to use.
 # v1.2 - 2013.5.12
 # A second parameter added;
 # usage() added;
@@ -12,30 +14,20 @@
 # project inited.
 
 usage() {
-	echo "$0 fakeroot_of_package package_name"
+	echo "$0"
 	echo 'This program need root permission'
 }
 
-if [ $# -ne 2 ]; then
-	echo 'parameter needed'
-	usage
-	exit 1
-fi 
 
-DIR=$1
-DIR=${DIR%%/}
+DIR="fakeroot/"
+DEB="qrencodegui.deb"
 if [ !-d $DIR ]; then
 	echo 'Error: no such directory!!!'
 	usage
 	exit 1
 fi
 
-#DEB=${DIR%%/}.deb
-DEB=$2
-
-
 cd $DIR
-
 chown -R root:root .
 find usr -type f | xargs chmod a+r
 find usr -type d | xargs chmod a+rx

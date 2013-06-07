@@ -1,5 +1,9 @@
 ===== Changes for qrencode-gui =====
 
+# v1.7 - 2013.6.7
+# - Fixed glade file error in Config.py.build
+# - Chown deb package from root to current user.
+
 # v1.6 - 2013.5.12
 # - Modify the strategy of window resize method.
 # - Add some icons.

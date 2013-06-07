@@ -8,11 +8,11 @@
     <property name="type_hint">dialog</property>
     <property name="transient_for">main_window</property>
     <property name="program_name">Qrencode GUI</property>
-    <property name="version">1.6</property>
-    <property name="copyright" translatable="yes">Copyright © 2013 goowaMie</property>
+    <property name="version">1.7</property>
+    <property name="copyright" translatable="yes">Copyright © 2013 LiuLang</property>
     <property name="comments" translatable="yes">GUI tool for qrencode</property>
-    <property name="website">http://www.gnu.org</property>
-    <property name="authors">goowaMie &lt;gsushzhsosgsu@gmail.com&gt;</property>
+    <property name="website">https://github.com/LiuLang/qrencodegui</property>
+    <property name="authors">LiuLang&lt;gsushzhsosgsu@gmail.com&gt;</property>
     <property name="logo">64.png</property>
     <property name="license_type">gpl-3-0</property>
     <child internal-child="vbox">
