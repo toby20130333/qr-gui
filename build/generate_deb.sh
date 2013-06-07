@@ -1,6 +1,8 @@
 #!/bin/sh
 
 # Generate deb package from source.
+# v1.3 - 2013.6.7
+# Add chown operate.
 # v1.2 - 2013.5.12
 # A second parameter added;
 # usage() added;
@@ -54,6 +56,12 @@ dpkg -b $DIR $DEB
 echo 'DEB generated...'
 
 rm -rf $DIR
-echo $DIR cleaned
+echo "$DIR cleaned"
+
+# That DEB package needs to be chowned to current user.
+OWNER=$(stat -c%u "$0")
+GROUP=$(stat -c%g "$0")
+chown $OWNER:$GROUP $DEB
+echo 'file owner and group owner changed..'
 
 mv $DEB ../
