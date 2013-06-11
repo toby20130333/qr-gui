@@ -1,6 +1,8 @@
 #!/bin/sh
 
 # Generate deb package from source.
+# v1.4 - 2013.6.11
+# Simplify the operations.
 # v1.3 - 2013.6.7
 # Add chown operate.
 # Change the usage, now no need to input fakeroot and package name, making
