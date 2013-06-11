@@ -5,16 +5,17 @@
 from gettext import gettext as _
 from gi.repository import Gtk
 
-from qrencodegui.Config import *
+from qrencodegui import Config
 from qrencodegui.Handler import Handler
 
 def main():
     builder = Gtk.Builder()
-    builder.add_from_file(GLADE)
-    builder.connect_signals(Handler(builder))
-    win = builder.get_object('main_window')
-    win.show_all()
-    Gtk.main()
+    for glade in Config.GLADE_FILES:
+        builder.add_from_file(glade)
+
+    handler = Handler(builder)
+    builder.connect_signals(handler)
+    handler.run()
 
 if __name__ == '__main__':
     main()

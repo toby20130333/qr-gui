@@ -1,7 +1,7 @@
 Package: qrencode-gui
-Version: 1.7
+Version: 2.0
 Architecture: all
-Maintainer: goowaMie<gsushzhsosgsu@gmail.com>
+Maintainer: LiuLang<gsushzhsosgsu@gmail.com>
 Installed-Size: 208k
 Depends: python3, qrencode, python3-gi
 Section: gnome
