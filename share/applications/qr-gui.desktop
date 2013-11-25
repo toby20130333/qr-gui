@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=QR GUI
+GenericName=QR GUI
+Comment=GUI for QR Image Generator and Decoder
+Exec=qr-gui
+Icon=qr-gui
+Terminal=false
+Type=Application
+Categories=Application;Graphics;

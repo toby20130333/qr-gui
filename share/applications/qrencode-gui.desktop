@@ -1,9 +1,0 @@
-[Desktop Entry]
-Name=QRencode GUI
-GenericName=QRencode GUI
-Comment=QR Image Generator with GUI
-Exec=qrencode-gui
-Icon=qrencode-gui
-Terminal=false
-Type=Application
-Categories=Application;Graphics;
