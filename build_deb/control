@@ -1,0 +1,10 @@
+Package: qrencode-gui
+Version: 3.0.1
+Architecture: all
+Maintainer: LiuLang<gsushzhsosgsu@gmail.com>
+Installed-Size: 168k
+Depends: python3, qrencode, zbar-tools, python3-gi, python3-cairo
+Section: gnome
+Priority: optional
+Description: Encode/Decode QR
+ qr-gui is a graphical user interface to generate/decode QR images, using qrencode and zbar as backend.
