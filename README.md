@@ -1,48 +1,42 @@
 ABOUT
 =====
-qrencode-gui - QR Image Generator with GUI.
+qr-gui QR Image encoder/decoer with GUI.
 
-Qrencode-gui is a graphical user interface to generate QR images, using qrencode as a backend.
+qr-gui is a GUI tool to generate QR images or decode QR from image files or webcam, using qrencode and zbar as backend.
 
-Tested on Debian sid.
-
-
-SCREENSHOT
-==========
-![qrencoegui screenshot](share/doc/qrencodegui/screenshot.png?raw=true)
+Tested on Debian testing.
 
 
 Features
 ========
-* Simple to use.
+* Easy to use.
 * Instant QR image generation.
+* Decoding QR by selecting an area on screen.
 
 
 INSTALL
 =======
-In Debian based systems(like Ubuntu, Linux Mint), just download and install the deb package, `qrencodegui.deb`.
+For Debian based systems(like Deibna, Linux Mint), please download and install the deb package.
 
-Alternatively, you can build your own deb package, see BUILD part.
+For other linux distributions, please install it with `pip3` - python3
+version of pip:
 
-RPM packages will be added soon.
-
-
-BUILD
-=====
-Enter `build/` folder, and run build.sh script in command user like this:
-`$ ./build.sh`
-
-Then, run generate-deb.sh with root priviledge, like this:
-`$ sudo ./generate_deb.sh`
+    # pip3 install qr-gui
 
 
 DEPENDENCIES
 ============
 In linux desktops other than debian based systems, you may need to solve pakcage deepencies manually, by installing these packages:
-* qrencode - commandline interface of `qrencode`
+* qrencode - commandline interface of `qrencode`.
 * python3-gi - Python3 bindings for gobject-introspection libraries.
+* zbar-tools - decode QR from images or webcam.
 
 
 TODO
 ====
 * Add rpm package builder.
+
+
+SCREENSHOT
+==========
+![qrencoegui screenshot](screenshots/screenshot-0.png?raw=true)
