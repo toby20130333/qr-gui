@@ -6,6 +6,7 @@ qr-gui is a GUI tool to generate QR images or decode QR from image files or webc
 
 DEPENDENCIES
 ============
+Install these packages first:
 
 * qrencode - commandline interface of `qrencode`.
 * zbar-tools - decode QR from images or webcam.
@@ -26,6 +27,10 @@ TODO
 ====
 * Support WebCam.
 
+Related
+=======
+qtqr - http://code.google.com/p/qtqr/, another GUI tool to generate or
+decode QR images, writting python and Qt.
 
 SCREENSHOT
 ==========

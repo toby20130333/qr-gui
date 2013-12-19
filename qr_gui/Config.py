@@ -16,7 +16,7 @@ else:
 
 APPNAME = 'QR GUI'
 VERSION = '3.0.1'
-HOMEPAGE = 'http://www.gnu.org'
+HOMEPAGE = 'https://github.com/LiuLang/qr-gui'
 AUTHORS = ['LiuLang <gsushzhsosgsu@gmail.com>',]
 DESCRIPTION = 'QR encode / decode tool for Linux users'
 
