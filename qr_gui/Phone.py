@@ -23,5 +23,9 @@ class Phone(Gtk.Box):
         self.pack_start(phone_entry, False, False, 0)
 
     def on_phone_entry_changed(self, entry):
-        self.app.encode_txt = 'tel:' + entry.get_text()
-        self.app.qr_encode()
+        if len(entry.get_text()) == 0:
+            self.app.reset()
+            return False
+
+        text = 'tel:' + entry.get_text()
+        self.app.qr_encode(text)

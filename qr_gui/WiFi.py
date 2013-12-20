@@ -49,10 +49,14 @@ class WiFi(Gtk.Box):
         note_info.pack_start(note_label, False, False, 5)
 
     def on_changed(self, *args):
-        self.app.encode_txt = ''.join([
+        if len(self.ssid_entry.get_text()) == 0:
+            self.app.reset()
+            return False
+
+        text = ''.join([
             'WIFI:T:', WIFI_TYPES[self.type_combo.get_active()],
             'S:', self.ssid_entry.get_text(),
             'P:', self.password_entry.get_text(),
             ';;',
             ])
-        self.app.qr_encode()
+        self.app.qr_encode(text)

@@ -104,6 +104,10 @@ class Addr(Gtk.ScrolledWindow):
         box.pack_start(self.country_entry, False, False, 0)
 
     def on_changed(self, *args):
+        if len(self.first_name_entry.get_text()) == 0:
+            self.app.reset()
+            return False
+
         addr = [
             'BEGIN:VCARD', '\n',
             'VERSION:3.0', '\n',
@@ -152,5 +156,5 @@ class Addr(Gtk.ScrolledWindow):
             addr.append(self.site_entry.get_text())
             addr.append('\n')
         addr.append('END:VCARD')
-        self.app.encode_txt = ''.join(addr)
-        self.app.qr_encode()
+        text = ''.join(addr)
+        self.app.qr_encode(text)

@@ -37,10 +37,14 @@ class Email(Gtk.Box):
         message_win.add(message_tv)
 
     def on_changed(self, *args):
-        self.app.encode_txt = ''.join([
+        if len(self.email_entry.get_text()) == 0:
+            self.app.reset()
+            return False
+
+        text = ''.join([
             'MATMSG:TO:', self.email_entry.get_text(),
             ';SUB:', self.subject_entry.get_text(),
             ';BODY:', Widgets.get_buf_text(self.message_buf),
             ';;',
             ])
-        self.app.qr_encode()
+        self.app.qr_encode(text)

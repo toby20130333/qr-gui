@@ -23,5 +23,4 @@ class Text(Gtk.ScrolledWindow):
         self.buf.set_text(text)
 
     def on_buf_changed(self, buf):
-        self.app.encode_txt = Widgets.get_buf_text(buf)
-        self.app.qr_encode()
+        self.app.qr_encode(Widgets.get_buf_text(buf))

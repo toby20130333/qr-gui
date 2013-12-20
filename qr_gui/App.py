@@ -44,9 +44,9 @@ MAX_LEN = 512 # 1024
 class App():
     def __init__(self):
         self.conf = Config.load_conf()
+        self._qr_encode_text = ''
         self.decode_path = ''
         self.encode_path = ''
-        self.encode_txt = ''
 
         self.window = Gtk.Window()
         self.window.set_title(Config.APPNAME)
@@ -134,6 +134,7 @@ class App():
         img_win.add(viewport)
 
         self.image = Gtk.Image()
+        self.image.set_from_file(Config.APP_LOGO)
         viewport.add(self.image)
 
         control_bar = Gtk.Toolbar()
@@ -196,12 +197,22 @@ class App():
         Config.dump_conf(self.conf)
         Gtk.main_quit()
 
-    def qr_encode(self):
-        '''Encode txt to QR image and displays on main window.'''
-        self.update_statusbar()
+    def reset(self):
+        '''Reset QR generation process'''
+        self.qr_encode('')
 
-        length = len(self.encode_txt)
-        if length == 0 or length > MAX_LEN:
+    def refresh(self):
+        self.qr_encode(self._qr_encode_text)
+
+    def qr_encode(self, text):
+        '''Encode txt to QR image and displays on main window.'''
+        length = len(text)
+        self._qr_encode_text = text
+        self.update_statusbar(length)
+        if length == 0:
+            self.image.set_from_file(Config.APP_LOGO)
+            return False
+        elif length > MAX_LEN:
             return False
 
         if os.path.exists(self.encode_path):
@@ -217,7 +228,7 @@ class App():
             '-l', ERROR_LEVELS[self.conf['error']],
             '--foreground', Widgets.color_to_str(self.conf['fg']),
             '--background', Widgets.color_to_str(self.conf['bg']),
-            self.encode_txt,
+            text,
         ]).wait()
 
         # Reload qr image in the window:
@@ -269,10 +280,9 @@ class App():
             self.type_combo.set_active(0)
             self.text_tab.set_text(out_txt)
 
-    def update_statusbar(self):
+    def update_statusbar(self, length):
         '''Update image path and character count on statusbar'''
         count_id = self.statusbar.get_context_id('count')
-        length = len(self.encode_txt)
         status = _('Characters: {0}/{1}').format(length, MAX_LEN)
         if length > MAX_LEN:
             status += _(' Error: No more than {0} characters!').format(MAX_LEN)
@@ -284,28 +294,27 @@ class App():
 
     def on_pixel_spin_changed(self, spin):
         self.conf['pixel'] = spin.get_value()
-        self.qr_encode()
+        self.refresh()
 
     def on_error_level_changed(self, combo):
         self.conf['error'] = combo.get_active()
-        self.qr_encode()
+        self.refresh()
 
     def on_margin_spin_changed(self, spin):
         self.conf['margin'] = spin.get_value()
-        self.qr_encode()
+        self.refresh()
 
     def on_fore_color_set(self, color_btn):
         self.conf['fg'] = color_btn.get_rgba().to_string()
-        self.qr_encode()
+        self.refresh()
 
     def on_back_color_set(self, color_btn):
         self.conf['bg'] = color_btn.get_rgba().to_string()
-        self.qr_encode()
+        self.refresh()
 
     # controlbar signal handlers
     def on_save_btn_clicked(self, btn):
-        if len(self.encode_txt) == 0 or \
-                not os.path.exists(self.encode_path):
+        if not os.path.exists(self.encode_path):
             return
 
         dialog = Gtk.FileChooserDialog(_('Save QR image as..'),

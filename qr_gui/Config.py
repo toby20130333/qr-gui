@@ -25,6 +25,7 @@ VERSION = '3.0.1'
 HOMEPAGE = 'https://github.com/LiuLang/qr-gui'
 AUTHORS = ['LiuLang <gsushzhsosgsu@gmail.com>',]
 DESCRIPTION = 'QR encode / decode tool for Linux users'
+APP_LOGO = os.path.join(PREF, 'qr-gui', 'qr-gui.svg')
 
 HOME_DIR = os.path.expanduser('~')
 CONF_DIR = os.path.join(HOME_DIR, '.config', 'qr-gui')

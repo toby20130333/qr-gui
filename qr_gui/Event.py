@@ -76,11 +76,15 @@ class Event(Gtk.ScrolledWindow):
         box.pack_start(self.loc_entry, False, False, 0)
 
     def on_changed(self, *args):
+        if len(self.name_entry.get_text()) == 0:
+            self.app.reset()
+            return False
+
         start_time = Widgets.get_datetime(self.start_cal,
                 self.start_hour, self.start_min)
         stop_time = Widgets.get_datetime(self.stop_cal,
                 self.stop_hour, self.stop_min)
-        self.app.encode_txt = ''.join([
+        text = ''.join([
             'BEGIN:VCALENDAR', '\n',
             'VERSION:2.0', '\n',
             'BEGIN:VEVENT', '\n',
@@ -91,4 +95,4 @@ class Event(Gtk.ScrolledWindow):
             'END:VEVENT', '\n',
             'END:VCALENDAR',
             ])
-        self.app.qr_encode()
+        self.app.qr_encode(text)

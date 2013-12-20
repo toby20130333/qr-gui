@@ -28,8 +28,12 @@ class Geo(Gtk.Box):
         self.lont_entry.connect('changed', self.on_changed)
 
     def on_changed(self, *args):
-        self.app.encode_txt = ''.join([
+        if len(self.lat_entry.get_text()) == 0:
+            self.app.reset()
+            return False
+
+        text = ''.join([
             'geo:' + self.lat_entry.get_text(), 
             ',', self.lont_entry.get_text(),
             ])
-        self.app.qr_encode()
+        self.app.qr_encode(text)

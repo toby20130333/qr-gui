@@ -39,11 +39,14 @@ class SMS(Gtk.Box):
         self.pack_start(self.count_label, False, False, 0)
 
     def on_changed(self, *args):
+        if len(self.phone_entry.get_text()) == 0:
+            self.app.reset()
+            return False
+
         msg = Widgets.get_buf_text(self.message_buf)
         self.count_label.set_text(
                 _('Message chars: {0}/140').format(len(msg)))
-        self.app.encode_txt = ''.join([
+        text = ''.join([
             'SMSTO:', self.phone_entry.get_text(),
-            ':', msg,
-            ])
-        self.app.qr_encode()
+            ':', msg])
+        self.app.qr_encode(text)
