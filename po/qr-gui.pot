@@ -1,0 +1,285 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: qr-gui 3.0.1\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2013-12-20 11:51+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../qr_gui/Addr.py:22
+msgid "First Name:"
+msgstr ""
+
+#: ../qr_gui/Addr.py:28
+msgid "Last Name:"
+msgstr ""
+
+#: ../qr_gui/Addr.py:34
+msgid "Job Title:"
+msgstr ""
+
+#: ../qr_gui/Addr.py:40
+msgid "Telephone Number:"
+msgstr ""
+
+#: ../qr_gui/Addr.py:46 ../qr_gui/SMS.py:19
+msgid "Cell Phone:"
+msgstr ""
+
+#: ../qr_gui/Addr.py:52
+msgid "Fax Nubmer:"
+msgstr ""
+
+#: ../qr_gui/Addr.py:58
+msgid "Email:"
+msgstr ""
+
+#: ../qr_gui/Addr.py:64
+msgid "Website:"
+msgstr ""
+
+#: ../qr_gui/Addr.py:70
+msgid "Organization:"
+msgstr ""
+
+#: ../qr_gui/Addr.py:76
+msgid "Street Address:"
+msgstr ""
+
+#: ../qr_gui/Addr.py:82
+msgid "City:"
+msgstr ""
+
+#: ../qr_gui/Addr.py:88
+msgid "State:"
+msgstr ""
+
+#: ../qr_gui/Addr.py:94
+msgid "Zip/Postcode:"
+msgstr ""
+
+#: ../qr_gui/Addr.py:100
+msgid "Country:"
+msgstr ""
+
+#: ../qr_gui/App.py:28
+msgid "Plain Text"
+msgstr ""
+
+#: ../qr_gui/App.py:29
+msgid "Email Message"
+msgstr ""
+
+#: ../qr_gui/App.py:30
+msgid "Phone Number"
+msgstr ""
+
+#: ../qr_gui/App.py:31
+msgid "Addressbook"
+msgstr ""
+
+#: ../qr_gui/App.py:32
+msgid "SMS"
+msgstr ""
+
+#: ../qr_gui/App.py:33
+msgid "Geo Location"
+msgstr ""
+
+#: ../qr_gui/App.py:34
+msgid "WiFi Connection"
+msgstr ""
+
+#: ../qr_gui/App.py:35
+msgid "Event"
+msgstr ""
+
+#: ../qr_gui/App.py:37
+msgid "Lowest"
+msgstr ""
+
+#: ../qr_gui/App.py:38
+msgid "Medium"
+msgstr ""
+
+#: ../qr_gui/App.py:39
+msgid "QuiteGood"
+msgstr ""
+
+#: ../qr_gui/App.py:40
+msgid "Highest"
+msgstr ""
+
+#: ../qr_gui/App.py:90
+msgid "Pixel Size:"
+msgstr ""
+
+#: ../qr_gui/App.py:91
+msgid "Error Correction:"
+msgstr ""
+
+#: ../qr_gui/App.py:92
+msgid "Margin Size:"
+msgstr ""
+
+#: ../qr_gui/App.py:93
+msgid "Foreground:"
+msgstr ""
+
+#: ../qr_gui/App.py:94
+msgid "Background:"
+msgstr ""
+
+#: ../qr_gui/App.py:146
+msgid "Save"
+msgstr ""
+
+#: ../qr_gui/App.py:147
+msgid "Save QR Image to file"
+msgstr ""
+
+#: ../qr_gui/App.py:152
+msgid "Scan QR Image"
+msgstr ""
+
+#: ../qr_gui/App.py:153
+msgid "Scan QR from QR Image"
+msgstr ""
+
+#: ../qr_gui/App.py:160
+msgid "Scan from WebCam"
+msgstr ""
+
+#: ../qr_gui/App.py:161
+msgid "Scan QR from WebCam"
+msgstr ""
+
+#: ../qr_gui/App.py:166
+msgid "Grab QR from Screen"
+msgstr ""
+
+#: ../qr_gui/App.py:167
+msgid "Scan QR from Screen"
+msgstr ""
+
+#: ../qr_gui/App.py:239
+msgid "Failed to decode QR Image"
+msgstr ""
+
+#: ../qr_gui/App.py:242
+msgid "QR Image Content"
+msgstr ""
+
+#: ../qr_gui/App.py:276
+#, python-brace-format
+msgid "Characters: {0}/{1}"
+msgstr ""
+
+#: ../qr_gui/App.py:278
+#, python-brace-format
+msgid " Error: No more than {0} characters!"
+msgstr ""
+
+#: ../qr_gui/App.py:311
+msgid "Save QR image as.."
+msgstr ""
+
+#: ../qr_gui/App.py:317
+msgid "PNG Image"
+msgstr ""
+
+#: ../qr_gui/App.py:321 ../qr_gui/App.py:348
+msgid "All Files"
+msgstr ""
+
+#: ../qr_gui/App.py:334
+msgid "Choose a QR image to Scan.."
+msgstr ""
+
+#: ../qr_gui/App.py:340
+msgid "Image Files"
+msgstr ""
+
+#: ../qr_gui/Email.py:18
+msgid "Email Address:"
+msgstr ""
+
+#: ../qr_gui/Email.py:24
+msgid "Subject:"
+msgstr ""
+
+#: ../qr_gui/Email.py:29 ../qr_gui/SMS.py:26
+msgid "Message:"
+msgstr ""
+
+#: ../qr_gui/Event.py:22
+msgid "Event Name:"
+msgstr ""
+
+#: ../qr_gui/Event.py:28
+msgid "Start Date & Time:"
+msgstr ""
+
+#: ../qr_gui/Event.py:50
+msgid "Stop Date & Time:"
+msgstr ""
+
+#: ../qr_gui/Event.py:72
+msgid "Event Location:"
+msgstr ""
+
+#: ../qr_gui/Geo.py:18
+msgid "Latitude:"
+msgstr ""
+
+#: ../qr_gui/Geo.py:24
+msgid "Longtitude:"
+msgstr ""
+
+#: ../qr_gui/Phone.py:18
+msgid "Phone Number:"
+msgstr ""
+
+#: ../qr_gui/SMS.py:37 ../qr_gui/SMS.py:44
+#, python-brace-format
+msgid "Message chars: {0}/140"
+msgstr ""
+
+#: ../qr_gui/WiFi.py:14
+msgid "No Encryption"
+msgstr ""
+
+#: ../qr_gui/WiFi.py:14
+msgid "WEP"
+msgstr ""
+
+#: ../qr_gui/WiFi.py:14
+msgid "WPA/WPA2"
+msgstr ""
+
+#: ../qr_gui/WiFi.py:21
+msgid "Network Type:"
+msgstr ""
+
+#: ../qr_gui/WiFi.py:30
+msgid "SSID:"
+msgstr ""
+
+#: ../qr_gui/WiFi.py:36
+msgid "Password:"
+msgstr ""
+
+#: ../qr_gui/WiFi.py:45
+msgid "Works on Android!"
+msgstr ""

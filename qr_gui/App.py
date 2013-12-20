@@ -1,5 +1,5 @@
 
-# Copyright (C) 2013 LiuLang <gsushzhsosgsu@gmail.com>
+# Copyright (C) 2013-2014 LiuLang <gsushzhsosgsu@gmail.com>
 
 # Use of this source code is governed by GPLv3 license that can be found
 # in http://www.gnu.org/licenses/gpl-3.0.html
@@ -13,6 +13,7 @@ import subprocess
 GLib.threads_init()
 
 from qr_gui import Config
+_ = Config._
 from qr_gui import Widgets
 from qr_gui.Addr import Addr
 from qr_gui.Email import Email
@@ -24,10 +25,19 @@ from qr_gui.SMS import SMS
 from qr_gui.Text import Text
 from qr_gui.WiFi import WiFi
 
-QR_TYPES = ('Plain Text', 'Email Message', 'Phone Number', 'Addressbook',
-            'SMS', 'Geo Location', 'WiFi Connection', 'Event', )
+QR_TYPES = (_('Plain Text'),
+            _('Email Message'),
+            _('Phone Number'),
+            _('Addressbook'),
+            _('SMS'),
+            _('Geo Location'),
+            _('WiFi Connection'),
+            _('Event'))
 ERROR_LEVELS = ('L', 'M', 'Q', 'H', )
-ERROR_LEVELS_DISNAME = ('Lowest', 'Medium', 'QuiteGood', 'Highest', )
+ERROR_LEVELS_DISNAME = (_('Lowest'),
+                        _('Medium'),
+                        _('QuiteGood'),
+                        _('Highest'))
 MAX_LEN = 512 # 1024
 
 
@@ -76,12 +86,12 @@ class App():
 
         # right side of paned
         opt_grid = Gtk.Grid()
-        opt_grid.set_column_spacing(5)
-        opt_grid.attach(Gtk.Label('Pixel Size:'), 0, 0, 1, 1)
-        opt_grid.attach(Gtk.Label('Error Correction:'), 1, 0, 1, 1)
-        opt_grid.attach(Gtk.Label('Margin Size:'), 2, 0, 1, 1)
-        opt_grid.attach(Gtk.Label('Foreground:'), 3, 0, 1, 1)
-        opt_grid.attach(Gtk.Label('Background:'), 4, 0, 1, 1)
+        opt_grid.set_column_spacing(15)
+        opt_grid.attach(Widgets.Label(_('Pixel Size:')), 0, 0, 1, 1)
+        opt_grid.attach(Widgets.Label(_('Error Correction:')), 1, 0, 1, 1)
+        opt_grid.attach(Widgets.Label(_('Margin Size:')), 2, 0, 1, 1)
+        opt_grid.attach(Widgets.Label(_('Foreground:')), 3, 0, 1, 1)
+        opt_grid.attach(Widgets.Label(_('Background:')), 4, 0, 1, 1)
 
         pixel_spin = Gtk.SpinButton.new_with_range(1, 15, 1)
         pixel_spin.set_value(self.conf['pixel'])
@@ -133,28 +143,28 @@ class App():
         control_bar.props.show_arrow = False
         right_vbox.pack_start(control_bar, False, False, 0)
 
-        save_item = Gtk.ToolButton(label='Save')
-        save_item.set_tooltip_text('Save QR Image to file')
+        save_item = Gtk.ToolButton(label=_('Save'))
+        save_item.set_tooltip_text(_('Save QR Image to file'))
         save_item.set_icon_name('document-save-symbolic')
         save_item.connect('clicked', self.on_save_btn_clicked)
         control_bar.insert(save_item, 0)
 
-        open_item = Gtk.ToolButton(label='Scan QR Image')
-        open_item.set_tooltip_text('Scan QR from QR Image')
+        open_item = Gtk.ToolButton(label=_('Scan QR Image'))
+        open_item.set_tooltip_text(_('Scan QR from QR Image'))
         open_item.set_icon_name('document-open-symbolic')
         open_item.props.halign = Gtk.Align.END
         open_item.connect('clicked', self.on_open_btn_clicked)
         control_bar.insert(open_item, 1)
         control_bar.child_set_property(open_item, 'expand', True)
 
-        cam_item = Gtk.ToolButton(label='Scan from WebCam')
-        cam_item.set_tooltip_text('Scan QR from WebCam')
+        cam_item = Gtk.ToolButton(label=_('Scan from WebCam'))
+        cam_item.set_tooltip_text(_('Scan QR from WebCam'))
         cam_item.set_icon_name('camera-web-symbolic')
         cam_item.connect('clicked', self.on_cam_btn_clicked)
         control_bar.insert(cam_item, 2)
 
-        grab_item = Gtk.ToolButton(label='Grab QR from Screen')
-        grab_item.set_tooltip_text('Scan QR from Screen')
+        grab_item = Gtk.ToolButton(label=_('Grab QR from Screen'))
+        grab_item.set_tooltip_text(_('Scan QR from Screen'))
         grab_item.set_icon_name('applets-screenshooter-symbolic')
         grab_item.connect('clicked', self.on_grab_btn_clicked)
         control_bar.insert(grab_item, 3)
@@ -187,9 +197,7 @@ class App():
         Gtk.main_quit()
 
     def qr_encode(self):
-        '''
-        Encode txt to QR image and displays on main window.
-        '''
+        '''Encode txt to QR image and displays on main window.'''
         self.update_statusbar()
 
         length = len(self.encode_txt)
@@ -228,10 +236,10 @@ class App():
         out_txt = out.decode()
 
         if len(out_txt) == 0:
-            Widgets.error('Failed to decode QR Image.', self.window)
+            Widgets.error(_('Failed to decode QR Image'), self.window)
             return
 
-        dialog = Gtk.Dialog('QR Image Content', self.window, 0,
+        dialog = Gtk.Dialog(_('QR Image Content'), self.window, 0,
                 (Gtk.STOCK_COPY, Gtk.ResponseType.YES,
                  Gtk.STOCK_EDIT, Gtk.ResponseType.APPLY,
                  Gtk.STOCK_CLOSE, Gtk.ResponseType.CLOSE))
@@ -262,14 +270,12 @@ class App():
             self.text_tab.set_text(out_txt)
 
     def update_statusbar(self):
-        '''
-        Update image path and character count on statusbar.
-        '''
+        '''Update image path and character count on statusbar'''
         count_id = self.statusbar.get_context_id('count')
         length = len(self.encode_txt)
-        status = 'Characters: {0}/{1}'.format(length, MAX_LEN)
+        status = _('Characters: {0}/{1}').format(length, MAX_LEN)
         if length > MAX_LEN:
-            status += ' Error: No more than {0} characters!'.format(MAX_LEN)
+            status += _(' Error: No more than {0} characters!').format(MAX_LEN)
         self.statusbar.push(count_id, status)
 
     # opt_grid signal handlers
@@ -302,17 +308,17 @@ class App():
                 not os.path.exists(self.encode_path):
             return
 
-        dialog = Gtk.FileChooserDialog('Save QR image as..',
+        dialog = Gtk.FileChooserDialog(_('Save QR image as..'),
                 self.window, Gtk.FileChooserAction.SAVE,
                 (Gtk.STOCK_CANCEL, Gtk.ResponseType.CANCEL,
-                    Gtk.STOCK_SAVE, Gtk.ResponseType.OK))
+                 Gtk.STOCK_SAVE, Gtk.ResponseType.OK))
 
         png_filter = Gtk.FileFilter()
-        png_filter.set_name('PNG Image(*.png)')
+        png_filter.set_name(_('PNG Image'))
         png_filter.add_mime_type('image/png')
         dialog.add_filter(png_filter)
         all_filter = Gtk.FileFilter()
-        all_filter.set_name('All Files(*)')
+        all_filter.set_name(_('All Files'))
         all_filter.add_pattern('*.*')
         dialog.add_filter(all_filter)
         dialog.set_do_overwrite_confirmation(True)
@@ -325,13 +331,13 @@ class App():
         dialog.destroy()
 
     def on_open_btn_clicked(self, btn):
-        dialog = Gtk.FileChooserDialog('Choose a QR image to Scan..',
+        dialog = Gtk.FileChooserDialog(_('Choose a QR image to Scan..'),
                 self.window, Gtk.FileChooserAction.OPEN,
                 (Gtk.STOCK_CANCEL, Gtk.ResponseType.CANCEL,
-                    Gtk.STOCK_OPEN, Gtk.ResponseType.OK))
+                 Gtk.STOCK_OPEN, Gtk.ResponseType.OK))
 
         img_filter = Gtk.FileFilter()
-        img_filter.set_name('Image Files')
+        img_filter.set_name(_('Image Files'))
         img_filter.add_mime_type('image/png')
         img_filter.add_mime_type('image/svg')
         img_filter.add_mime_type('image/jpg')
@@ -339,7 +345,7 @@ class App():
         img_filter.add_mime_type('image/gif')
         dialog.add_filter(img_filter)
         all_filter = Gtk.FileFilter()
-        all_filter.set_name('All Files')
+        all_filter.set_name(_('All Files'))
         all_filter.add_pattern('*.*')
         dialog.add_filter(all_filter)
 

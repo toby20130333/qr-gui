@@ -1,5 +1,5 @@
 
-# Copyright (C) 2013 LiuLang <gsushzhsosgsu@gmail.com>
+# Copyright (C) 2013-2014 LiuLang <gsushzhsosgsu@gmail.com>
 
 # Use of this source code is governed by GPLv3 license that can be found
 # in http://www.gnu.org/licenses/gpl-3.0.html
@@ -16,19 +16,13 @@ def get_buf_text(buf):
     return buf.get_text(buf.get_start_iter(), buf.get_end_iter(), False)
 
 def error(msg, parent):
-    dialog = Gtk.MessageDialog(
-            parent,
-            Gtk.DialogFlags.MODAL,
-            Gtk.MessageType.ERROR,
-            Gtk.ButtonsType.OK,
-            msg)
+    dialog = Gtk.MessageDialog(parent,Gtk.DialogFlags.MODAL,
+            Gtk.MessageType.ERROR, Gtk.ButtonsType.OK, msg)
     dialog.run()
     dialog.destroy()
 
 def len2(txt):
-    '''
-    Return a string with two characters, prefixing with 0
-    '''
+    '''Return a string with two characters, prefixing with 0'''
     if len(txt) == 0:
         return '00'
     elif len(txt) == 1:
@@ -78,9 +72,7 @@ def save_pix_to_file(pixbuf, filename, type_='png'):
 
 
 class Label(Gtk.Label):
-    '''
-    A GtkLabel subclass which aligns left
-    '''
+    '''A GtkLabel subclass which aligns left'''
     def __init__(self, *args):
         super().__init__(*args)
         self.props.xalign = 0

@@ -1,11 +1,12 @@
 
-# Copyright (C) 2013 LiuLang <gsushzhsosgsu@gmail.com>
+# Copyright (C) 2013-2014 LiuLang <gsushzhsosgsu@gmail.com>
 
 # Use of this source code is governed by GPLv3 license that can be found
 # in http://www.gnu.org/licenses/gpl-3.0.html
 
-import os
+import gettext
 import json
+import os
 
 if __file__.startswith('/usr/local/'):
     PREF = '/usr/local/share'
@@ -13,6 +14,11 @@ elif __file__.startswith('/usr/'):
     PREF = '/usr/share'
 else:
     PREF = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'share')
+
+LOCALEDIR = os.path.join(PREF, 'locale')
+gettext.bindtextdomain('qr-gui', LOCALEDIR)
+gettext.textdomain('qr-gui')
+_ = gettext.gettext
 
 APPNAME = 'QR GUI'
 VERSION = '3.0.1'
@@ -29,7 +35,7 @@ _default_conf = {
         'pixel': 6,    # pixel size
         'margin': 3,   # margin size
         'error': 0,    # error correction level
-        'window-size': (1000, 650)
+        'window-size': (800, 600)
         }
 
 def load_conf():
